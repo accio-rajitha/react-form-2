@@ -8,7 +8,7 @@ const Form = () => {
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
- 
+  
   const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
@@ -28,7 +28,7 @@ const Form = () => {
       formErrors.email = 'Please enter a valid email address';
     }
 
-   
+    
     if (!validatePassword(password)) {
       formErrors.password = 'Password must be at least 8 characters long';
     }
@@ -61,6 +61,7 @@ const Form = () => {
           onChange={(e) => setEmail(e.target.value)}
           error={errors.email}
           style={{ borderColor: errors.email ? 'red' : 'green' }}
+          label="Email"
         />
         <Input
           type="password"
@@ -70,6 +71,7 @@ const Form = () => {
           onChange={(e) => setPassword(e.target.value)}
           error={errors.password}
           style={{ borderColor: errors.password ? 'red' : 'green' }}
+          label="Password"
         />
         <Input
           type="password"
@@ -79,6 +81,7 @@ const Form = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           error={errors.confirmPassword}
           style={{ borderColor: errors.confirmPassword ? 'red' : 'green' }}
+          label="Confirm Password"
         />
         <button type="submit">Submit</button>
       </form>
@@ -89,4 +92,5 @@ const Form = () => {
 };
 
 export default Form;
+
 
